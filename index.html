@@ -42,38 +42,51 @@
 
     <script>
         function uploadData() {
-            const file = document.getElementById('file').files[0];
-            const reader = new FileReader();
+            const fileInput = document.getElementById('file');
+            const file = fileInput.files[0];
             const btn = document.getElementById('submitBtn');
             const status = document.getElementById('status');
             
-            if(!file) { alert("একটি প্রেসক্রিপশনের ছবি আপলোড করুন"); return; }
+            if(!file) { alert("একটি ছবি আপলোড করুন"); return; }
             
             btn.disabled = true;
-            btn.innerText = "আপলোড হচ্ছে...";
+            btn.innerText = "অপেক্ষা করুন, আপলোড হচ্ছে...";
 
+            const reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onload = function() {
-                const rawData = reader.result.split(',')[1];
-                const obj = {
-                    name: document.getElementById('name').value,
-                    phone: document.getElementById('phone').value,
-                    file: rawData,
-                    filename: file.name,
-                    mimetype: file.type
-                };
+                const img = new Image();
+                img.src = reader.result;
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const scale = 800 / img.width;
+                    canvas.width = 800;
+                    canvas.height = img.height * scale;
+                    canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+                    
+                    const obj = {
+                        name: document.getElementById('name').value,
+                        phone: document.getElementById('phone').value,
+                        file: canvas.toDataURL('image/jpeg', 0.6).split(',')[1],
+                        filename: "order_" + Date.now() + ".jpg",
+                        mimetype: "image/jpeg"
+                    };
 
-                // আপনার নতুন লিংক এখানে বসানো হয়েছে
-                fetch("https://script.google.com/macros/s/AKfycbwm7HfvLxX-p9Rd1l5y2PdTziYdXaafPQDDbNbmAeCoH-LWJ6wNAmCcgY22vZ0mjaO0ow/exec", {
-                    method: "POST",
-                    body: JSON.stringify(obj)
-                }).then(res => res.text()).then(data => {
-                    status.classList.remove('hidden');
-                    status.innerText = "ধন্যবাদ! আপনার অর্ডারটি সফলভাবে গৃহীত হয়েছে।";
-                    btn.innerText = "অর্ডার কনফার্ম করুন";
-                    btn.disabled = false;
-                    document.getElementById('orderForm').reset();
-                });
+                    fetch("https://script.google.com/macros/s/AKfycbyVNDlyc82Q3ywHAETtkxfNjgwskEhkghKZRe8GYPtyvBQu8kZhM-PudJ5CFnAkbIlj-g/exec", {
+                        method: "POST",
+                        body: JSON.stringify(obj)
+                    }).then(res => res.json()).then(data => {
+                        status.classList.remove('hidden');
+                        status.innerText = "ধন্যবাদ! আপনার অর্ডারটি সফলভাবে গৃহীত হয়েছে।";
+                        btn.innerText = "অর্ডার কনফার্ম করুন";
+                        btn.disabled = false;
+                        document.getElementById('orderForm').reset();
+                    }).catch(err => {
+                        alert("কিছু একটা সমস্যা হয়েছে, আবার চেষ্টা করুন।");
+                        btn.disabled = false;
+                        btn.innerText = "অর্ডার কনফার্ম করুন";
+                    });
+                }
             }
         }
     </script>
