@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>জোহরা ফার্মা - সিরিয়াল বুকিং</title>
-    <!-- Tailwind CSS CDN (ডিজাইনের জন্য) -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans">
 
-    <!-- হেডার / ব্যানার সেকশন -->
+    <!-- হেডার સેকশন -->
     <header class="bg-emerald-600 text-white shadow-md">
         <div class="container mx-auto px-4 py-8 text-center">
             <h1 class="text-4xl font-extrabold tracking-wide mb-2">জোহরা ফার্মা</h1>
@@ -23,21 +23,20 @@
 
     <!-- প্রধান কনটেন্ট -->
     <main class="container mx-auto px-4 py-12 max-w-2xl">
-        <!-- ডাক্তার দেখানোর তথ্য কার্ড -->
         <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 mb-8 text-center">
             <span class="bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">সাপ্তাহিক সেবা</span>
             <h2 class="text-2xl font-bold mt-3 mb-2 text-slate-800">অভিজ্ঞ ডাক্তার দ্বারা রোগী দেখা হয়</h2>
-            <p class="text-slate-500 text-sm">সymptom বা সিরিয়াল নিশ্চিত করতে নিচের ফর্মটি পূরণ করুন। সপ্তাহে একদিন আমাদের ফার্মেসিতে অভিজ্ঞ ডাক্তার বসেন।</p>
+            <p class="text-slate-500 text-sm">সপ্তাহে একদিন আমাদের ফার্মেসিতে অভিজ্ঞ ডাক্তার বসেন। অগ্রিম সিরিয়াল নিশ্চিত করতে নিচের ফর্মটি পূরণ করুন।</p>
         </div>
 
-        <!-- বুকিং ফর্ম সেকশন -->
+        <!-- বুকিং ফর্ম -->
         <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-8">
             <h3 class="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
                 <i class="fa-solid fa-calendar-check text-emerald-600"></i> সিরিয়াল বুকিং করুন
             </h3>
 
-            <!-- গুগল ফর্ম কানেকশন সেটআপ -->
-            <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeQQL8CrrEFjJnL9PEpbZhZ4zzbc0oKjvTlxfPwj_nl-01gQQ/formResponse" method="POST" target="_self" class="space-y-6">
+            <!-- কানেক্টেড গুগল ফর্ম -->
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSeQQL8CrrEFjJnL9PEpbZhZ4zzbc0oKjvTlxfPwj_nl-01gQQ/formResponse" method="POST" class="space-y-6">
                 
                 <!-- নাম ইনপুট -->
                 <div>
@@ -46,7 +45,6 @@
                         <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
                             <i class="fa-solid fa-user"></i>
                         </span>
-                        <!-- আপনার নতুন ফর্মের নামের আইডিটি "name=" এর জায়গায় বসাবেন -->
                         <input type="text" name="entry.2005620554" required placeholder="সম্পূর্ণ নামটি লিখুন" 
                             class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all">
                     </div>
@@ -59,7 +57,6 @@
                         <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
                             <i class="fa-solid fa-phone"></i>
                         </span>
-                        <!-- আপনার নতুন ফর্মের মোবাইল নম্বরের আইডিটি "name=" এর জায়গায় বসাবেন -->
                         <input type="tel" name="entry.1167997497" required placeholder="০১৭XXXXXXXX" 
                             class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all">
                     </div>
@@ -67,13 +64,12 @@
 
                 <!-- শারীরিক সমস্যা ইনপুট -->
                 <div>
-                    <label class="block text-sm font-semibold text-slate-700 mb-2">শারীরিক সমস্যা (সংক্ষেপে)</label>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">শারীরিক সমস্যা (সংক্ষেপে) <span class="text-red-500">*</span></label>
                     <div class="relative">
                         <span class="absolute top-3 left-3 text-slate-400">
                             <i class="fa-solid fa-stethoscope"></i>
                         </span>
-                        <!-- আপনার নতুন ফর্মের সমস্যার আইডিটি "name=" এর জায়গায় বসাবেন -->
-                        <textarea name="entry.830358828" rows="4" placeholder="আপনার সমস্যাটি সংক্ষেপে এখানে লিখুন..." 
+                        <textarea name="entry.830358828" rows="4" required placeholder="আপনার সমস্যাটি সংক্ষেপে এখানে লিখুন..." 
                             class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all"></textarea>
                     </div>
                 </div>
@@ -87,22 +83,14 @@
         </div>
     </main>
 
-    <!-- ফুটার / যোগাযোগের তথ্য -->
+    <!-- ফুটার -->
     <footer class="bg-slate-900 text-slate-400 py-12 mt-12 border-t border-slate-800">
         <div class="container mx-auto px-4 max-w-2xl text-center space-y-6">
             <h4 class="text-white text-lg font-bold">যোগাযোগের তথ্য</h4>
-            
             <div class="flex flex-col gap-3 justify-center text-sm">
-                <p class="flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-location-dot text-emerald-500"></i> 
-                    লোকেশন: কাশিপুর খিল মার্কেট, নারায়ণগঞ্জ
-                </p>
-                <p class="flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-phone text-emerald-500"></i> 
-                    কল করুন: <a href="tel:+8801947701323" class="text-white hover:underline">+৮৮০ ১৯৪৭-৭০১৩২৩</a>
-                </p>
+                <p><i class="fa-solid fa-location-dot text-emerald-500 mr-2"></i> লোকেশন: কাশিপুর খিল মার্কেট, নারায়ণগঞ্জ</p>
+                <p><i class="fa-solid fa-phone text-emerald-500 mr-2"></i> কল করুন: <a href="tel:+8801947701323" class="text-white hover:underline">+৮৮০ ১৯৪৭-৭০১৩২৩</a></p>
             </div>
-
             <div class="pt-6 border-t border-slate-800 text-xs">
                 &copy; 2026 জোহরা ফার্মা। সর্বস্বত্ব সংরক্ষিত।
             </div>
