@@ -36,12 +36,8 @@
                 <i class="fa-solid fa-calendar-check text-emerald-600"></i> সিরিয়াল বুকিং করুন
             </h3>
 
-            <!-- 
-                গুগল শিটের সাথে যুক্ত করার জন্য:
-                নিচের action="..." এর জায়গায় আপনার গুগল ফর্মের 'formResponse' লিংকটি বসাবেন।
-                ইনপুটগুলোর 'name="..."' এর জায়গায় আপনার গুগল ফর্মের এন্ট্রি আইডিগুলো (যেমন: entry.123456) বসাবেন।
-            -->
-            <form action="YOUR_GOOGLE_FORM_SUBMIT_URL_HERE" method="POST" target="_self" class="space-y-6">
+            <!-- গুগল ফর্ম কানেকশন সেটআপ -->
+            <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdcVy4x7bRk216rXg2hDppWk0o36NlEew0QwHA/formResponse" method="POST" target="_self" class="space-y-6">
                 
                 <!-- নাম ইনপুট -->
                 <div>
@@ -50,7 +46,7 @@
                         <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
                             <i class="fa-solid fa-user"></i>
                         </span>
-                        <input type="text" name="entry.YOUR_NAME_ENTRY_ID" required placeholder="সম্পূর্ণ নামটি লিখুন" 
+                        <input type="text" name="entry.2005620554" required placeholder="সম্পূর্ণ নামটি লিখুন" 
                             class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all">
                     </div>
                 </div>
@@ -62,7 +58,7 @@
                         <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
                             <i class="fa-solid fa-phone"></i>
                         </span>
-                        <input type="tel" name="entry.YOUR_PHONE_ENTRY_ID" required placeholder="০১৭XXXXXXXX" 
+                        <input type="tel" name="entry.1167997497" required placeholder="০১৭XXXXXXXX" 
                             class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all">
                     </div>
                 </div>
@@ -74,7 +70,7 @@
                         <span class="absolute top-3 left-3 text-slate-400">
                             <i class="fa-solid fa-stethoscope"></i>
                         </span>
-                        <textarea name="entry.YOUR_PROBLEM_ENTRY_ID" rows="4" placeholder="আপনার সমস্যাটি সংক্ষেপে এখানে লিখুন..." 
+                        <textarea name="entry.830358828" rows="4" placeholder="আপনার সমস্যাটি সংক্ষেপে এখানে লিখুন..." 
                             class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all"></textarea>
                     </div>
                 </div>
@@ -96,7 +92,7 @@
             <div class="flex flex-col gap-3 justify-center text-sm">
                 <p class="flex items-center justify-center gap-2">
                     <i class="fa-solid fa-location-dot text-emerald-500"></i> 
-                    লোকেশন: কাশিপুর খিল মার্কেট অটো স্ট্যান্ড
+                    লোকেশন: কাশিপুর খিল মার্কেট, নারায়ণগঞ্জ
                 </p>
                 <p class="flex items-center justify-center gap-2">
                     <i class="fa-solid fa-phone text-emerald-500"></i> 
