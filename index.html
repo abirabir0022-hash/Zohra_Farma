@@ -40,8 +40,11 @@
                 <i class="fa-solid fa-circle-check text-emerald-600 text-xl mr-2"></i> আপনার সিরিয়াল সফলভাবে বুকিং হয়েছে!
             </div>
 
+            <!-- অদৃশ্য আইফ্রেম যা ব্যাকগ্রাউন্ডে গুগল ফর্ম সাবমিট করবে -->
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {showSuccess();}"></iframe>
+
             <!-- কানেক্টেড গুগল ফর্ম -->
-            <form id="bookingForm" action="https://docs.google.com/forms/d/e/1FAIpQLSeQQL8CrrEFjJnL9PEpbZhZ4zzbc0oKjvTlxfPwj_nl-01gQQ/formResponse" method="POST" class="space-y-6">
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSeQQL8CrrEFjJnL9PEpbZhZ4zzbc0oKjvTlxfPwj_nl-01gQQ/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
                 <!-- নাম ইনপুট -->
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-2">রোগীর নাম <span class="text-red-500">*</span></label>
@@ -54,7 +57,7 @@
                     </div>
                 </div>
 
-                <!-- ফোন নম্বর ইনপুট -->
+                <!-- মোবাইল নম্বর ইনপুট -->
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-2">মোবাইল নম্বর <span class="text-red-500">*</span></label>
                     <div class="relative">
@@ -79,7 +82,7 @@
                 </div>
 
                 <!-- সাবমিট বাটন -->
-                <button type="submit" id="submitBtn"
+                <button type="submit" 
                     class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
                     <i class="fa-solid fa-paper-plane"></i> সিরিয়াল বুকিং সাবমিট করুন
                 </button>
@@ -101,42 +104,16 @@
         </div>
     </footer>
 
-    <!-- ব্যাকগ্রাউন্ডে ডাটা পাঠানোর জাভাস্ক্রিপ্ট কোড -->
+    <!-- স্ক্রিপ্ট কন্ট্রোল -->
     <script>
-        document.getElementById('bookingForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // পেজ রিফ্রেশ হওয়া বন্ধ করবে
-            
-            var form = this;
-            var submitBtn = document.getElementById('submitBtn');
-            var successMessage = document.getElementById('successMessage');
-            
-            // বাটন লোডিং স্টেট
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> প্রসেসিং হচ্ছে...';
-            
-            // ডাটা ফর্ম্যাট করা
-            var formData = new FormData(form);
-            
-            // ব্যাকগ্রাউন্ডে সাবমিট করা
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors' // গুগল ফর্মের সিকিউরিটি ব্লকিং এড়ানোর জন্য
-            }).then(function() {
-                // সফল হলে
-                successMessage.classList.remove('hidden');
-                form.reset(); // ফর্মের লেখা মুছে দেবে
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> সিরিয়াল বুকিং সাবমিট করুন';
-                
-                // স্ক্রল করে সফলতার মেসেজটি সামনে আনবে
-                successMessage.scrollIntoView({ behavior: 'smooth' });
-            }).catch(function(error) {
-                alert('দুঃখিত! কোথাও ভুল হচ্ছে। আবার চেষ্টা করুন।');
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> সিরিয়াল বুকিং সাবমিট করুন';
-            });
-        });
+        var submitted = false;
+        function showSuccess() {
+            var msg = document.getElementById('successMessage');
+            msg.classList.remove('hidden');
+            msg.scrollIntoView({ behavior: 'smooth' });
+            // ফর্ম রিসেট করার জন্য
+            document.querySelector('form').reset();
+        }
     </script>
 
 </body>
