@@ -3,137 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>সিরিয়াল বুকিং ফর্ম</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .form-container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 450px;
-        }
-        h2 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .input-group {
-            margin-bottom: 15px;
-        }
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #666;
-            font-weight: bold;
-        }
-        .input-group input, .input-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 14px;
-        }
-        .input-group textarea {
-            resize: vertical;
-            height: 80px;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #5c258d;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        button:hover {
-            background-color: #431a66;
-        }
-        #message {
-            margin-top: 15px;
-            text-align: center;
-            font-weight: bold;
-            display: none;
-        }
-    </style>
+    <title>জোহরা ফার্মা - সিরিয়াল বুকিং</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 font-sans">
 
-<div class="form-container">
-    <h2>সিরিয়াল বুকিং করুন</h2>
-    
-    <!-- আপনার নতুন গুগল ওয়েব অ্যাপ লিংক এখানে যুক্ত করা হয়েছে -->
-    <form id="bookingForm" action="https://script.google.com/macros/s/AKfycbxUr3q3EVk47crOk_scbxdiOHdYChVRCeLkwQ9YSRecuD2SyAZm_bhNTjCV5Cs_smdA_Q/exec" method="POST">
-        
-        <div class="input-group">
-            <label for="name">রোগীর নাম:</label>
-            <input type="text" id="name" name="entry.2005620554" placeholder="রোগীর নাম লিখুন" required>
+    <!-- হেডার সেকশন -->
+    <header class="bg-emerald-600 text-white shadow-md">
+        <div class="container mx-auto px-4 py-8 text-center">
+            <h1 class="text-4xl font-extrabold tracking-wide mb-2">জোহরা ফার্মা</h1>
+            <p class="text-emerald-100 text-lg font-medium">ওসমান অপু • আপনার বিশ্বস্ত স্বাস্থ্যসেবা অংশীদার</p>
+            <div class="mt-4 inline-block bg-emerald-700 px-4 py-2 rounded-full text-sm font-semibold">
+                <i class="fa-solid fa-truck-fast mr-2"></i> হোম ডেলিভারি চার্জ মাত্র ২০ টাকা!
+            </div>
         </div>
-        
-        <div class="input-group">
-            <label for="phone">মোবাইল নম্বর:</label>
-            <input type="tel" id="phone" name="entry.1167997497" placeholder="মোবাইল নম্বর লিখুন" required>
-        </div>
-        
-        <div class="input-group">
-            <label for="problem">শারীরিক সমস্যা (সংক্ষেপে):</label>
-            <textarea id="problem" name="entry.830358828" placeholder="আপনার সমস্যাটি সংক্ষেপে লিখুন" required></textarea>
-        </div>
-        
-        <button type="submit" id="submitBtn">বুকিং নিশ্চিত করুন</button>
-    </form>
-    
-    <div id="message"></div>
-</div>
+    </header>
 
-<script>
-    const form = document.getElementById('bookingForm');
-    const msgDiv = document.getElementById('message');
-    const btn = document.getElementById('submitBtn');
+    <!-- প্রধান কনটেন্ট -->
+    <main class="container mx-auto px-4 py-12 max-w-2xl">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 mb-8 text-center">
+            <span class="bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">সাপ্তাহিক সেবা</span>
+            <h2 class="text-2xl font-bold mt-3 mb-2 text-slate-800">অভিজ্ঞ ডাক্তার দ্বারা রোগী দেখা হয়</h2>
+            <p class="text-slate-500 text-sm">সপ্তাহে একদিন আমাদের ফার্মেসিতে অভিজ্ঞ ডাক্তার বসেন। অগ্রিম সিরিয়াল নিশ্চিত করতে নিচের ফর্মটি পূরণ করুন।</p>
+        </div>
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        btn.disabled = true;
-        btn.innerText = "প্রসেস হচ্ছে...";
-        
-        const formData = new FormData(form);
-        
-        fetch(form.action, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            msgDiv.style.display = "block";
-            msgDiv.style.color = "green";
-            msgDiv.innerText = "আপনার সিরিয়ালটি সফলভাবে বুকড হয়েছে!";
-            form.reset();
-            btn.disabled = false;
-            btn.innerText = "বুকিং নিশ্চিত করুন";
-        })
-        .catch(error => {
-            msgDiv.style.display = "block";
-            msgDiv.style.color = "red";
-            msgDiv.innerText = "দুঃখিত, কোনো সমস্যা হয়েছে। আবার চেষ্টা করুন।";
-            btn.disabled = false;
-            btn.innerText = "বুকিং নিশ্চিত করুন";
+        <!-- বুকিং ফর্ম -->
+        <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-8">
+            <h3 class="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-calendar-check text-emerald-600"></i> সিরিয়াল বুকিং করুন
+            </h3>
+
+            <!-- সফলতার মেসেজ -->
+            <div id="successMessage" class="hidden bg-emerald-50 border border-emerald-200 text-emerald-800 p-4 rounded-xl text-center mb-6 font-semibold">
+                <i class="fa-solid fa-circle-check text-emerald-600 text-xl mr-2"></i> আপনার সিরিয়াল সফলভাবে বুকিং হয়েছে!
+            </div>
+            
+            <!-- ব্যর্থতার মেসেজ -->
+            <div id="errorMessage" class="hidden bg-red-50 border border-red-200 text-red-800 p-4 rounded-xl text-center mb-6 font-semibold">
+                <i class="fa-solid fa-circle-xmark text-red-600 text-xl mr-2"></i> দুঃখিত, কোনো সমস্যা হয়েছে। আবার চেষ্টা করুন।
+            </div>
+
+            <!-- ফর্ম সাবমিশন সরাসরি আপনার নতুন স্ক্রিপ্ট লিংকে হবে -->
+            <form id="bookingForm" action="https://script.google.com/macros/s/AKfycbxUr3q3EVk47crOk_scbxdiOHdYChVRCeLkwQ9YSRecuD2SyAZm_bhNTjCV5Cs_smdA_Q/exec" method="POST" class="space-y-6">
+                <!-- নাম ইনপুট -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">রোগীর নাম <span class="text-red-500">*</span></label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-4  00">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                        <input type="text" name="entry.2005620554" required placeholder="সম্পূর্ণ নামটি লিখুন" 
+                            class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all">
+                    </div>
+                </div>
+
+                <!-- মোবাইল নম্বর ইনপুট -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">মোবাইল নম্বর <span class="text-red-500">*</span></label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                            <i class="fa-solid fa-phone"></i>
+                        </span>
+                        <input type="tel" name="entry.1167997497" required placeholder="০১৭XXXXXXXX" 
+                            class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all">
+                    </div>
+                </div>
+
+                <!-- শারীরিক সমস্যা ইনপুট -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">শারীরিক সমস্যা (সংক্ষেপে) <span class="text-red-500">*</span></label>
+                    <div class="relative">
+                        <span class="absolute top-3 left-3 text-slate-400">
+                            <i class="fa-solid fa-stethoscope"></i>
+                        </span>
+                        <textarea name="entry.830358828" rows="4" required placeholder="আপনার সমস্যাটি সংক্ষেপে এখানে লিখুন..." 
+                            class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all"></textarea>
+                    </div>
+                </div>
+
+                <!-- সাবমিট বাটন -->
+                <button type="submit" id="submitBtn"
+                    class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> সিরিয়াল বুকিং সাবমিট করুন
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <!-- ফুটার -->
+    <footer class="bg-slate-900 text-slate-400 py-12 mt-12 border-t border-slate-800">
+        <div class="container mx-auto px-4 max-w-2xl text-center space-y-6">
+            <h4 class="text-white text-lg font-bold">যোগাযোগের তথ্য</h4>
+            <div class="flex flex-col gap-3 justify-center text-sm">
+                <p><i class="fa-solid fa-location-dot text-emerald-500 mr-2"></i> লোকেশন: কাশিপুর খিল মার্কেট, নারায়ণগঞ্জ</p>
+                <p><i class="fa-solid fa-phone text-emerald-500 mr-2"></i> কল করুন: <a href="tel:+8801947701323" class="text-white hover:underline">+৮৮০ ১৯৪৭-৭০১৩২৩</a></p>
+            </div>
+            <div class="pt-6 border-t border-slate-800 text-xs">
+                &copy; 2026 জোহরা ফার্মা। সর্বস্বত্ব সংরক্ষিত।
+            </div>
+        </div>
+    </footer>
+
+    <!-- ব্যাকএন্ড ডাটা প্রসেস স্ক্রিপ্ট -->
+    <script>
+        const form = document.getElementById('bookingForm');
+        const successMsg = document.getElementById('successMessage');
+        const errorMsg = document.getElementById('errorMessage');
+        const btn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin mr-2"></i> প্রসেস হচ্ছে...`;
+            
+            successMsg.classList.add('hidden');
+            errorMsg.classList.add('hidden');
+
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                successMsg.classList.remove('hidden');
+                successMsg.scrollIntoView({ behavior: 'smooth' });
+                form.reset();
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> সিরিয়াল বুকিং সাবমিট করুন`;
+            })
+            .catch(error => {
+                errorMsg.classList.remove('hidden');
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> সিরিয়াল বুকিং সাবমিট করুন`;
+            });
         });
-    });
-</script>
+    </script>
 
 </body>
 </html>
